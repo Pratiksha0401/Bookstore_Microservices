@@ -14,8 +14,16 @@ public interface ICartDetails {
 
 	String updateCart(String token, UUID cartId, Long quantity);
 
-	String deleteCart(String token, UUID cartId);
+	String deleteCart(UUID cartId);
 
 	String updateStatus(String token, UUID cartId, String status);
+
+	CartDetails getCart(UUID cartId);
+
+	String deleteCart(String token, UUID cartId);
+	
+	CartDetails getCartByUserIdandCartId(UUID userId,UUID cartId);
+
+	CartDetails getCartByUserIdandCartId(String token, UUID cartId);
 
 }

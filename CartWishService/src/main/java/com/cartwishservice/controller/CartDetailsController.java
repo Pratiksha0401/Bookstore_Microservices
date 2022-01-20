@@ -74,5 +74,27 @@ public class CartDetailsController {
 		ResponseDTO responseDTO = new ResponseDTO("Response Successful", cartData);
 		return new ResponseEntity<>(responseDTO, HttpStatus.OK);
 	}
+	
+	//@GetMapping("/getcart/{cartId}")
+	@GetMapping("/getcart/{cartId}")
+	//public CartDetails getCart(@RequestHeader(value = "token") String token, @PathVariable UUID cartId)
+	public CartDetails getCart(@PathVariable UUID cartId){
+		CartDetails cartDetails = cartDetailsService.getCart(cartId);
+		return cartDetails;
+	}
+	
+	@DeleteMapping("/deleteCartForOrder/{cartId}")
+	public String deleteCartForOrder(@PathVariable UUID cartId) {
+		String cartData = cartDetailsService.deleteCart(cartId);
+		return cartData;
+	}
+	
+	@GetMapping("/getcartbyuserIdandcartId/{cartId}")
+	public ResponseEntity<ResponseDTO> getcartbyuseridandcartid(@RequestHeader(value = "token") String token,
+													@PathVariable UUID cartId) {
+		CartDetails cartDetailsList = cartDetailsService.getCartByUserIdandCartId(token,cartId);
+		ResponseDTO responseDTO = new ResponseDTO("Response Successful", cartDetailsList);
+		return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+	}
 
 }

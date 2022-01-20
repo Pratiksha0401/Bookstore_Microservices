@@ -92,4 +92,29 @@ public class CartDetailsService implements ICartDetails {
 		cartDetailsRepo.delete(cartDetails);
 		return "cart Deleted sucessfully";
 	}
+	
+	@Override
+	public String deleteCart(UUID cartId) {
+		CartDetails cartDetails = cartDetailsRepo.findById(cartId).
+				orElseThrow(()-> new CartException("Cart Not Found"));
+		cartDetailsRepo.delete(cartDetails);
+		return "cart Deleted sucessfully";
+	}
+
+	@Override
+	public CartDetails getCart( UUID cartId) {
+		return cartDetailsRepo.findByCartId(cartId);
+	}
+
+	@Override
+	public CartDetails getCartByUserIdandCartId(String token, UUID cartId) {
+		UserData userData = this.isUserPresent(token);
+		return cartDetailsRepo.findUserIdAndCartId(userData.getUserId(), cartId);
+	}
+
+	@Override
+	public CartDetails getCartByUserIdandCartId(UUID userId, UUID cartId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
