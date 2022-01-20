@@ -1,0 +1,5 @@
+package com.cartwishservice.controller;
+
+public class WishListController {
+
+}

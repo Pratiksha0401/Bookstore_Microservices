@@ -51,7 +51,8 @@ public class CartDetailsService implements ICartDetails {
 	@Override
 	public String addBookToCart(String token, CartDetailsDto cartDto, UUID bookId) {
 		UserData userData = this.isUserPresent(token);
-		BookData bookData = restTemplate.getForObject("http://localhost:8200/bookdata/" + bookId, BookData.class);
+		BookData bookData = restTemplate.getForObject("http://localhost:8200/bookdata/" + bookId, 
+							BookData.class);
 		CartDetails cartDetails = cartDetailsRepo.findByBookId(bookId);
 		System.out.println("cart :"+cartDetails);
 		if (cartDetails!=null) {
@@ -60,5 +61,35 @@ public class CartDetailsService implements ICartDetails {
 		cartDetails = new CartDetails(cartDto, bookData, userData.getUserId());
 		cartDetailsRepo.save(cartDetails);
 		return "Book added to cart sucessfully";
+	}
+	
+	@Override
+	public String updateCart(String token, UUID cartId, Long quantity) {
+		UserData userData = this.isUserPresent(token);
+		UUID userId = userData.getUserId();
+		CartDetails cartDetails = cartDetailsRepo.findById(cartId).
+					orElseThrow(()-> new CartException("Cart Not Found"));
+		
+		cartDetails.setQuantity(quantity);
+		cartDetailsRepo.save(cartDetails);
+		return "Cart updated sucessfully";
+	}
+	@Override
+	public String updateStatus(String token, UUID cartId, String status) {
+		UserData userData=this.isUserPresent(token);
+		CartDetails cartDetails = cartDetailsRepo.findById(cartId).
+				orElseThrow(()-> new CartException("Cart Not Found"));
+		cartDetails.setStatus(status);
+		cartDetailsRepo.save(cartDetails);
+		return "Cart Status Updated Successfully.";
+	}
+	
+	@Override
+	public String deleteCart(String token, UUID cartId) {
+		UserData userData = this.isUserPresent(token);
+		CartDetails cartDetails = cartDetailsRepo.findById(cartId).
+				orElseThrow(()-> new CartException("Cart Not Found"));
+		cartDetailsRepo.delete(cartDetails);
+		return "cart Deleted sucessfully";
 	}
 }

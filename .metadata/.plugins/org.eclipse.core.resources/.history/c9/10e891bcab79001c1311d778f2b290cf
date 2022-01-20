@@ -1,0 +1,5 @@
+package com.cartwishservice.service;
+
+public class WishListService {
+
+}

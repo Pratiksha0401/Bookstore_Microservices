@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +42,34 @@ public class CartDetailsController {
 			@RequestBody CartDetailsDto cartDto, @PathVariable UUID bookId) {
 
 		String cartData = cartDetailsService.addBookToCart(token, cartDto, bookId);
+
+		ResponseDTO responseDTO = new ResponseDTO("Response Successful", cartData);
+		return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+	}
+	
+	@PutMapping("/updateCart/{cartId}/{quantity}")
+	public ResponseEntity<ResponseDTO> updateCart(@RequestHeader(value = "token") String token,
+			@PathVariable UUID cartId, @PathVariable Long quantity) {
+
+		String cartData = cartDetailsService.updateCart(token, cartId, quantity);
+
+		ResponseDTO responseDTO = new ResponseDTO("Response Successful", cartData);
+		return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+	}
+	
+	@PutMapping("/updateStatus/{cartId}/{status}")
+	public ResponseEntity<ResponseDTO> updateStatus(@RequestHeader(value = "tokenId") String tokenId,
+			@PathVariable UUID cartId, @PathVariable String status) {
+		String cartData = cartDetailsService.updateStatus(tokenId, cartId, status);
+		ResponseDTO responseDTO = new ResponseDTO("Response Successful", cartData);
+		return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/deleteCart/{cartId}")
+	public ResponseEntity<ResponseDTO> deleteCart(@RequestHeader(value = "token") String token,
+			@PathVariable UUID cartId) {
+
+		String cartData = cartDetailsService.deleteCart(token, cartId);
 
 		ResponseDTO responseDTO = new ResponseDTO("Response Successful", cartData);
 		return new ResponseEntity<>(responseDTO, HttpStatus.OK);
