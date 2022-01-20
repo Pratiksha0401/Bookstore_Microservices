@@ -1,0 +1,5 @@
+package com.cartwishservice.dto;
+
+public class CartDetailsDto {
+
+}

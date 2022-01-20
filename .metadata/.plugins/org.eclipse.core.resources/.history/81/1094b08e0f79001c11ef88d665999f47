@@ -1,0 +1,8 @@
+package com.cartwishservice;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name="user", url="localhost:8100")
+public interface CartProxy {
+
+}

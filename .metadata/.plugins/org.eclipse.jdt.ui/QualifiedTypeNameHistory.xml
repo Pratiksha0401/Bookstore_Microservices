@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="springfox.documentation.service.Contact"/>
+    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.userservice.utils.Token"/>
+    <fullyQualifiedTypeName name="com.userservice.dto.ResetPasswordDto"/>
+    <fullyQualifiedTypeName name="com.userservice.dto.UserLoginDTO"/>
+    <fullyQualifiedTypeName name="com.userservice.dto.UpdateUserDTO"/>
+    <fullyQualifiedTypeName name="com.cartwishservice.util.Token"/>
+    <fullyQualifiedTypeName name="com.cartwishservice.entity.UserData"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+    <fullyQualifiedTypeName name="java.text.ParseException"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Table"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.Type"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="antlr.Token"/>
+    <fullyQualifiedTypeName name="com.cartwishservice.exception.CartException"/>
+    <fullyQualifiedTypeName name="org.springframework.web.client.RestTemplate"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.cartwishservice.CartProxy"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="java.util.UUID"/>
+    <fullyQualifiedTypeName name="com.userservice.entity.UserData"/>
+    <fullyQualifiedTypeName name="com.cartwishservice.dto.ResponseDTO"/>
+    <fullyQualifiedTypeName name="com.bookservice.entity.BookData"/>
+    <fullyQualifiedTypeName name="com.cartwishservice.entity.BookData"/>
+    <fullyQualifiedTypeName name="com.cartwishservice.entity.CartDetails"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>
