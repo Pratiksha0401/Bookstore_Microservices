@@ -1,3 +1,8 @@
 1642524786958	Rename Java project 'userservice'
 1642584860595	Delete resource 'CartWishService'
 1642671259464	Delete resource 'BookService'
+1642673228896	Delete resource 'UserService'
+1642673235195	Delete resource 'OrderService'
+1642673241541	Delete resource 'BookService'
+1642673246420	Delete resource 'CartWishService'
+1642673251981	Delete resource 'EurekaServer'
