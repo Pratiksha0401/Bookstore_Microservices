@@ -91,7 +91,7 @@ public class CartDetailsController {
 	
 	@GetMapping("/getcartbyuserIdandcartId/{cartId}")
 	public ResponseEntity<ResponseDTO> getcartbyuseridandcartid(@RequestHeader(value = "token") String token,
-													@PathVariable UUID cartId) {
+																@PathVariable UUID cartId) {
 		CartDetails cartDetailsList = cartDetailsService.getCartByUserIdandCartId(token,cartId);
 		ResponseDTO responseDTO = new ResponseDTO("Response Successful", cartDetailsList);
 		return new ResponseEntity<>(responseDTO, HttpStatus.OK);

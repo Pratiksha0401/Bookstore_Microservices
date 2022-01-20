@@ -1,5 +1,0 @@
-package com.cartwishservice.service;
-
-public interface ICartDetails {
-
-}

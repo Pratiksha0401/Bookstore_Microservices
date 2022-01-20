@@ -24,5 +24,4 @@ public interface CartDetailsRepository extends JpaRepository<CartDetails, UUID>{
 	@Query(value=" select * from cart_details where user_id:userId and cart_id:cartId" , nativeQuery = true)
 	CartDetails findUserIdAndCartId(UUID userId, UUID cartId);
 	
-	
 }

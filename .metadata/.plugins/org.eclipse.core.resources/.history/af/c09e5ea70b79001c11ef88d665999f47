@@ -1,5 +1,0 @@
-package com.cartwishservice.exception;
-
-public class CartException {
-
-}

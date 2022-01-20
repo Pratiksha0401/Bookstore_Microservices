@@ -2,7 +2,12 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="E:\BookStoreMicroservices\ApiGateway"/>
+			<item value="E:\BookStoreMicroservices\EurekaServer"/>
+			<item value="E:\BookStoreMicroservices\OrderService"/>
 			<item value="E:\BookStoreMicroservices\CartWishService"/>
+			<item value="E:\BookStoreMicroservices\UserService"/>
+			<item value="E:\BookStoreMicroservices\BookService"/>
 			<item value="E:\LMS\userservice"/>
 		</list>
 		<list key="projectNameTemplate">
