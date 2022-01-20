@@ -31,25 +31,16 @@ public class OrderAddress {
 	private String state;
 	private String type;
 	
+	@Type(type="uuid-char")
 	private UUID userId;
 	
-	private UUID cartId;
-	
-	public OrderAddress(OrderAddressDto orderAddressDto, CartDetails cartData) {
-		this.fullName=orderAddressDto.getFullName();
-		this.address=orderAddressDto.getAddress();
-		this.mobNo=orderAddressDto.getMobNo();
-		this.city=orderAddressDto.getCity();
-		this.state=orderAddressDto.getState(); 
-		this.type=orderAddressDto.getType();
-	}
-	
-	public OrderAddress(OrderAddressDto orderAddressDto) {
+	public OrderAddress(OrderAddressDto orderAddressDto,UUID userId) {
 		this.fullName=orderAddressDto.getFullName();
 		this.address=orderAddressDto.getAddress();
 		this.mobNo=orderAddressDto.getMobNo();
 		this.city=orderAddressDto.getCity();
 		this.state=orderAddressDto.getState(); 	
+		this.userId=userId;
 	}
 	
 }
