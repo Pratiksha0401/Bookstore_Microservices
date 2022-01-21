@@ -27,7 +27,7 @@ public class OrderPlacedService implements IOrdredService {
 
 	public UserData isUserPresent(String token) {
 		UserData userDetailsById = restTemplate
-				.getForObject("http://localhost:8100/user/getuser?userEmailToken= " + token, UserData.class);
+				.getForObject("http://user-service/user/getuser?userEmailToken= " + token, UserData.class);
 		// System.out.println("user data: "+userDetailsById.getUserId());
 		if (userDetailsById.getUserId() == null) {
 			throw new OrderException("User Not Found");
@@ -39,12 +39,12 @@ public class OrderPlacedService implements IOrdredService {
 	public String createOrder(String token, UUID cartId) {
 		UserData userData = isUserPresent(token);
 		CartDetails cartDetails = restTemplate.
-				getForObject("http://localhost:8300/cart/getcart/"+cartId, 
+				getForObject("http://cart-wish-service/cart/getcart/"+cartId, 
 				CartDetails.class);
 		BookData bookData = restTemplate.
-				getForObject("http://localhost:8200/bookdata/" + cartDetails.getBookId(), 
+				getForObject("http://book-service/bookdata/" + cartDetails.getBookId(), 
 				BookData.class);
-		restTemplate.delete("http://localhost:8300/cart/deleteCartForOrder/"+ cartId);
+		restTemplate.delete("http://cart-wish-service/cart/deleteCartForOrder/"+ cartId);
 		OrderPlaced placedOrder = new OrderPlaced(userData.getUserId(), bookData.getBookId());
 		orderRepo.save(placedOrder);
 		return "Order Added Successfully.";

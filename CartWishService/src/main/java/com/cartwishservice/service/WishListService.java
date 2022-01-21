@@ -25,7 +25,7 @@ public class WishListService implements IWishListService {
 
 	public UserData isUserPresent(String token) {
 		UserData userDetailsById = restTemplate
-				.getForObject("http://localhost:8100/user/getuser?userEmailToken= " + token, UserData.class);
+				.getForObject("http://user-service/user/getuser?userEmailToken= " + token, UserData.class);
 		// System.out.println("user data: "+userDetailsById.getUserId());
 		if (userDetailsById.getUserId() == null) {
 			throw new CartException("User Not Found");
@@ -42,7 +42,7 @@ public class WishListService implements IWishListService {
 	@Override
 	public String addBookToWishList(String token, UUID bookId) {
 		UserData userData = this.isUserPresent(token);
-		BookData bookData = restTemplate.getForObject("http://localhost:8200/bookdata/" + bookId, 
+		BookData bookData = restTemplate.getForObject("http://book-service/bookdata/" + bookId, 
 				BookData.class);
 	
 		WishList wishList = new WishList(userData.getUserId(), bookData.getBookId());

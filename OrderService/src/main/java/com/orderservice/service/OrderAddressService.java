@@ -24,7 +24,7 @@ public class OrderAddressService implements IOrderAddressService {
 
 	public UserData isUserPresent(String token) {
 		UserData userDetailsById = restTemplate
-				.getForObject("http://localhost:8100/user/getuser?userEmailToken= " + token, UserData.class);
+				.getForObject("http://user-service/user/getuser?userEmailToken= " + token, UserData.class);
 		// System.out.println("user data: "+userDetailsById.getUserId());
 		if (userDetailsById.getUserId() == null) {
 			throw new OrderException("User Not Found");
