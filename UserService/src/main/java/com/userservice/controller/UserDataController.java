@@ -30,9 +30,9 @@ import com.userservice.entity.UserData;
 import com.userservice.repository.UserDataRepository;
 import com.userservice.service.IUserDataService;
 
+@CrossOrigin()
 @RestController
-@RequestMapping("/user")
-@CrossOrigin
+@RequestMapping("user")
 public class UserDataController {
 	
 	@Autowired
